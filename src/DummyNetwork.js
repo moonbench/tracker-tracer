@@ -1,3 +1,7 @@
+/*
+ * This is a mockup of an API which provides JSON responses for some booking_numbers
+ */
+
 const bookings = {
 "TXG790195100": `{
   "booking_number":"TXG790195100",
