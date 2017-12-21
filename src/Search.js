@@ -102,7 +102,7 @@ class SearchResults extends Component {
     const saved_bookings = this.props.savedBookings.map(function(booking){
       return <SearchResult
                key={booking}
-               bookingName={booking}
+               bookingNumber={booking}
                saved={true}
                showBooking={showBookingFn}
                removeSavedBooking={removeBookingFn}               
@@ -116,7 +116,7 @@ class SearchResults extends Component {
             <div className="title">Search for booking</div>
             <ul>
               <SearchResult
-                bookingName={this.props.searchQuery}
+                bookingNumber={this.props.searchQuery}
                 showBooking={showBookingFn}
                 removeSavedBooking={this.props.removeSavedBooking}
                 />
@@ -148,18 +148,18 @@ class SearchResult extends Component {
   }
   clickBooking(event){
     event.preventDefault();
-    this.props.showBooking(this.props.bookingName);
+    this.props.showBooking(this.props.bookingNumber);
   }
   removeSavedBooking(event){
     event.preventDefault();
-    this.props.removeSavedBooking(this.props.bookingName);
+    this.props.removeSavedBooking(this.props.bookingNumber);
   }
   render(){
     return (
       <li>
         <a href="#"
           onClick={this.clickBooking}>
-          {this.props.bookingName}
+          {this.props.bookingNumber}
         </a>
         {this.props.saved &&
           <div className="remove">
