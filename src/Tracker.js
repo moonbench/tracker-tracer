@@ -108,7 +108,7 @@ class Footer extends Component {
       <div id="footer">        
         <p>A small tool for tracking shipments.</p>
         <p>Demo booking numbers:</p>
-        <blockquote>TXG790195100<br/>TXG790214500</blockquote>
+        <blockquote>TXG790195100<br/>TXG790214500<br/>TEST</blockquote>
       </div>
     );
   }
