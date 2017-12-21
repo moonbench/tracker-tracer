@@ -158,12 +158,12 @@ class SearchResult extends Component {
     return (
       <li>
         <a href="#"
-          onClick={(e) => this.props.showBooking(this.props.bookingName)}>
+          onClick={this.clickBooking}>
           {this.props.bookingName}
         </a>
         {this.props.saved &&
           <div className="remove">
-            <a href="#" className="button button-outline" onClick={this.clickBooking}>remove</a>
+            <a href="#" className="button button-outline" onClick={this.removeSavedBooking}>remove</a>
           </div>
         }        
       </li>
