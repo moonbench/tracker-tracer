@@ -6,6 +6,8 @@ export class Booking extends Component {
     super(props);
     this.saveBooking = this.saveBooking.bind(this);
     this.state = {saved: false};
+
+    this.navigateToBooking = this.navigateToBooking.bind(this);
   }
   
   saveBooking(event){
@@ -15,6 +17,11 @@ export class Booking extends Component {
     if(this.state.saved === true) return;
     this.setState({saved: true});
     setTimeout(() => this.setState({saved: false}), 1750);
+  }
+
+  navigateToBooking(event){
+    event.preventDefault();
+    window.history.pushState("","", "/booking/" + this.props.booking.booking_number);
   }
   
   render(){
@@ -28,7 +35,10 @@ export class Booking extends Component {
     return (
       <div className="booking_result">
         <div className="title">
-          Booking found <a href="#">{this.props.booking.booking_number}</a>
+          Booking found <a href={"/booking/"+this.props.booking.booking_number}
+            onClick={(e) => this.navigateToBooking(e, this.props.booking.booking_number)}>
+          {this.props.booking.booking_number}
+          </a>
         </div>
         <div className="save">
           <a className="button" href="#" onClick={this.saveBooking}>

@@ -5,12 +5,18 @@ import DummyNetwork from './DummyNetwork';
 import './Tracker.css';
 
 
+let inital_booking = null;
+const paths = window.location.pathname.split('/');
+if(paths[1]==="booking")
+  inital_booking = JSON.parse(DummyNetwork.get_booking(paths[2]));
+
+
 class Tracker extends Component {
   constructor(props){
     super(props);
     
     this.state = {
-      booking: null,
+      booking: inital_booking,
       savedBookings: [],
     };
 
@@ -42,7 +48,6 @@ class Tracker extends Component {
   removeAllSavedBookings(){
     this.setState({savedBookings: []});
   }
-  
 
   render(){
     const search = <Search findBooking={this.findBooking}
@@ -50,7 +55,6 @@ class Tracker extends Component {
           removeSavedBooking={this.removeSavedBooking}
           removeAllSavedBookings={this.removeAllSavedBookings}
           />;
-
     return (
       <div id="page">
         <Header search={search} />

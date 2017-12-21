@@ -144,6 +144,11 @@ class SearchResult extends Component {
   constructor(props){
     super(props);
     this.removeSavedBooking = this.removeSavedBooking.bind(this);
+    this.clickBooking = this.clickBooking.bind(this);
+  }
+  clickBooking(event){
+    event.preventDefault();
+    this.props.showBooking(this.props.bookingName);
   }
   removeSavedBooking(event){
     event.preventDefault();
@@ -158,7 +163,7 @@ class SearchResult extends Component {
         </a>
         {this.props.saved &&
           <div className="remove">
-            <a href="#" className="button button-outline" onClick={this.removeSavedBooking}>remove</a>
+            <a href="#" className="button button-outline" onClick={this.clickBooking}>remove</a>
           </div>
         }        
       </li>
